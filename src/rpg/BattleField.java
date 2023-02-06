@@ -3,6 +3,7 @@ package rpg;
 import rpg.character.AbstractCharacter;
 import rpg.character.hero.HeroParty;
 import rpg.character.monster.MonsterParty;
+import rpg.character.Specialist;
 
 public class BattleField {
     public static String battle(HeroParty heros, MonsterParty monsters) {

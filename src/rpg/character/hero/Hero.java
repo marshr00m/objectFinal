@@ -10,7 +10,6 @@ public class Hero extends AbstractCharacter {
 
     public Hero(String name, int hp, int attack) {
         super(name, hp, attack);
-        job = "普通のヒーロー";
     }
 
     public void run() {
@@ -37,9 +36,8 @@ public class Hero extends AbstractCharacter {
         } else if (command == 2) {// 逃げる
             this.run();
         } else if (command == 3) {// 必殺技
-            // チェックポイント2の時点では必殺技を実装しない，代わりに通常の攻撃を行うようにする
             while (true) {
-                if (hero.special(enemies)) {
+                if (hero.special(allies, enemies)) {
                     break;
                 }
             }

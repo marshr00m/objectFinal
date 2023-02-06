@@ -3,27 +3,30 @@ package rpg.character.monster.monster;
 import rpg.character.AbstractCharacter;
 import rpg.character.AbstractParty;
 import rpg.character.hero.HeroParty;
-import rpg.character.monster.Monster;
 
 import java.util.Random;
 
-public class Dragon extends BossMonster{
-    public Dragon(){
-        super("ドラゴン", 200, 30);
+public class KingDaemon extends BossMonster{
+    public KingDaemon(){
+        super("デモンズゲイト", 400, 40);
     }
 
     @Override
     public boolean special(AbstractParty allies, AbstractParty enemies) {
         Random random = new Random();
-        System.out.println(this.getName() + "の竜のいぶき，勇者全員に激しい嵐が襲いかかる");
+        int randomAttack = random.nextInt(attack) + attack;
+        int recover = 0;
+        System.out.println(this.getName() + "のギガドレイン，勇者全員が何者かに吸い付かれた");
         for(AbstractCharacter hero : enemies.getMembers()){
             if (!hero.isDead() && !hero.isEscaped()) {
-                int randomAttack = random.nextInt(attack) + attack;
                 int damage = hero.gotDamage(randomAttack);
-                System.out.println(hero.getName() + "に" + damage + "のダメージ");
+                System.out.println(hero.getName()+"に"+damage + "のダメージ");
                 hero.actionStatus();
+                recover += damage;
             }
         }
+        int heal = this.gotHeal(recover);
+        System.out.println(this.getName() + "は" + heal + "回復した");
         return true;
     }
 }

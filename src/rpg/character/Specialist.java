@@ -1,5 +1,5 @@
 package rpg.character;
 
 public interface Specialist {
-    public abstract boolean special(AbstractParty targets);
+    public abstract boolean special(AbstractParty allies, AbstractParty targets);
 }

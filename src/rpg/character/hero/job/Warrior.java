@@ -8,9 +8,10 @@ import java.util.Random;
 public class Warrior extends AbstractSuperHero{
     public Warrior(String name){
         super(name, 100, 30);
+        super.job = "戦士";
     }
     @Override
-    public boolean special(AbstractParty targets) {
+    public boolean special(AbstractParty allies, AbstractParty targets) {
         AbstractCharacter targetCharacter = selectTarget(targets);
         if (targetCharacter.isDead()) {
             return false;

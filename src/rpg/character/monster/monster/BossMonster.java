@@ -9,5 +9,5 @@ public abstract class BossMonster extends Monster implements Specialist{
     }
 
     @Override
-    public abstract boolean special(AbstractParty targets);
+    public abstract boolean special(AbstractParty allies, AbstractParty targets);
 }

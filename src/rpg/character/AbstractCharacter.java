@@ -19,7 +19,7 @@ public abstract class AbstractCharacter {
         setHp(hp);
         setMaxHp(hp);
         setAttack(attack);
-    };
+    }
 
     public String getName(){
         return name;

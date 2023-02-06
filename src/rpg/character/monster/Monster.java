@@ -2,7 +2,9 @@ package rpg.character.monster;
 
 import rpg.character.AbstractCharacter;
 import rpg.character.AbstractParty;
+import rpg.character.Specialist;
 import rpg.character.hero.HeroParty;
+import rpg.character.monster.monster.BossMonster;
 
 import java.util.Random;
 
@@ -17,12 +19,21 @@ public class Monster extends AbstractCharacter {
             System.out.println(this.getName() + "の行動");
             Random random = new Random();
             int command = random.nextInt(5);
-            if (0 <= command && command <= 3) {
+            if (this instanceof BossMonster && command == 4){
+                Specialist boss = (Specialist) this;
+                while (true) {
+                    if (boss.special(allies, enemies)) {
+                        break;
+                    }
+                }
+            } else if (0 <= command && command <= 3) {
                 while (true) {
                     if (attack(enemies)) {
                         break;
                     }
                 }
+            } else if (command == 4) {
+
             } else {
                 System.out.println(this.getName() + "はボーっとしている");
             }
